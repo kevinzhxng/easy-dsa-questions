@@ -10,7 +10,22 @@
  */
 
  const selectionSort = (nums) => {
+    for (let i = 0; i < nums.length; i++) {
+        let currentMin = i; //the position
+        for (let j = i + 1; j < nums.length; j++) {
+            let current = nums[j] //number of that position
+            if (nums[j] < nums[currentMin]) {
+                currentMin = j
+            }
+        }
 
+        if (currentMin !== i) {
+            let temp = nums[i];
+            nums[i] = nums[currentMin]
+            nums[currentMin] = temp
+        }
+    }
+    return nums
 }
 
 module.exports = selectionSort;
